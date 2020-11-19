@@ -7,35 +7,42 @@
 	Errorlog ${APACHE_LOG_DIR}/access.log combined
 
 
+<Directory "/var/www/html/ciclos/m6">
+		AuthType Basic
+		AuthName "m6"
+		AuthGroupFile "/etc/apache2/grupos"
+		AuthUserFile /etc/apache2/contr_basic
+		Require group professors director
+		Require user Santi Tito Eduard Mireia
 
 
-
-
-</Virtualhost>
-<Virtualhost>
-<Directory "/var/www/html/ciclos/professors>
-	Option Indexes
-	Options FollowSymLinks
-	Replace user
-</Directory>
-<Files index.html>
-	Order allow,deny
-	Deny from all
-</Files>
+	</Directory>
+		<Directory "/var/www/html/ciclos/m2/notes.xls>
+		AuthType Basic
+		AuthName "m2"
+		AuthGroupFile "/etc/apache2/grupos"
+		AuthUserFile /etc/apache2/contr_basic
+		Require group professors director
+		Require user Santi Tito Eduard Mireia
+	</Directory>
 	
-</Virtualhost>
-<VirtualHost>	
-	ServerAdmin pjulvez@almata.cat
-	ServerName ciclos.almata.professors.com
-	ServerAlias www.ciclos.almata.professors.com
-	DocumentRoot /var/www/html/ciclos/professors
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
-	Errorlog ${APACHE_LOG_DIR}/access.log combined
+	</Directory>
+		<Directory "/var/www/html/ciclos/m2/index.html>
+		AuthType Basic
+		AuthName "m2"
+		AuthUserFile /etc/apache2/contr_basic
+		Require valid-user
+	</Directory>
+	</Directory>
+		<Directory "/var/www/html/ciclos/m6/index.html>
+		AuthType Basic
+		AuthName "m6"
+		AuthUserFile /etc/apache2/contr_basic
+		Require valid-user
+	</Directory>
+
+
+
 
 </Virtualhost>
 
-
-
-
-
-</Virtualhost>
